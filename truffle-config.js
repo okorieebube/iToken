@@ -1,9 +1,6 @@
-/**
- * Use this file to configure your truffle project. It's seeded with some
- * common settings for different networks and features like migrations,
- * compilation and testing. Uncomment the ones you need or modify
- * them to suit your project as necessary.
- *
+require('babel-register')
+require('babel-polyfill')
+/*
  * More information about configuration can be found at:
  *
  * trufflesuite.com/docs/advanced/configuration

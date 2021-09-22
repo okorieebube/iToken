@@ -1,5 +1,7 @@
 const { assert, expect } = require("chai");
-const { BN } = require("@openzeppelin/test-helpers");
+const { default: Web3 } = require("web3");
+// const { BN } = require("@openzeppelin/test-helpers");
+
 
 const iToken = artifacts.require("iToken");
 require("chai").should();
@@ -8,14 +10,15 @@ contract("iToken", (accounts) => {
   const _name = "iToken";
   const _symbol = "ITK";
   const _decimals = 18;
+  // const _initialSupply = new BN('1000000000000000000000000')
 
   beforeEach(async () => {
     // .new : deploys a new contract version to network and returns a new instance of it.
-    this.token = await iToken.new(_name, _symbol);
+    this.token = await iToken.new(_name, _symbol, _decimals);
   });
 
   // Describe - to describe what a group of tests will do.
-  describe("check contract details", () => {
+  describe("Test for token details", () => {
     // It - used to describe each unit test.
     it("is deployed", async () => {
       // .deployed : creates a contract instance rep. the default address managed by contract. [prob. default address it was deployed to]
@@ -33,8 +36,8 @@ contract("iToken", (accounts) => {
     });
     it("has correct decimal", async () => {
       let decimals = await this.token.decimals();
-      // decimals.words[0].should.equal(18);
-      expect(await this.token.decimals()).to.be.bignumber.equal("18");
+      decimals.words[0].should.equal(18);
+      // expect(await this.token.decimals()).to.be.bignumber.equal("18");
     });
   });
 });
