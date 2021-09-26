@@ -10,7 +10,7 @@ const truffleAssert = require('truffle-assertions');
 
 
 
-contract("iTokenCrowdsale", function ([token_deployer, wallet, investor1, investor2]) {
+contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) {
 
   // TOKEN CONFIG
   const NAME = "iToken";
@@ -24,32 +24,24 @@ contract("iTokenCrowdsale", function ([token_deployer, wallet, investor1, invest
 
   var TOKEN, CROWDSALE;
 
+  // this runs before each `it` test function
+  beforeEach(async function () {
+    TOKEN = await iToken.new(NAME, SYMBOL, DECIMAL);
+    CROWDSALE = await iTokenCrowdsale.new(RATE, WALLET, TOKEN.address);
+
+    // Crowdsale cant mint token because, its not the owner of the token. 
+    // So we need to transfer ownership of token to our crowdsale address.
+    let add_new_minter = await TOKEN.addMinter(TOKEN.address);
+
+
+    let minter = await TOKEN.addMinter(CROWDSALE.address, { from: deployer });  // transfer token minter role to crowdsale
+    let balance = await TOKEN.balanceOf(CROWDSALE.address);
+    console.log({ balance: balance.toString() })
+    // console.log(minter)
+    // await TOKEN.renounceMinter();   // remove token deployer from minter role
+  });
+
   describe('Test for Crowdsale details', function () {
-
-    // this runs before each `it` test function
-    beforeEach(async function () {
-      TOKEN = await iToken.new(NAME, SYMBOL, DECIMAL);
-      CROWDSALE = await iTokenCrowdsale.new(RATE, WALLET, TOKEN.address);
-
-      // Crowdsale cant mint token because, its not the owner of the token. 
-      // So we need to transfer ownership of token to our crowdsale address.
-      console.log(TOKEN.address)
-      let add_new_minter = await TOKEN.addMinter(TOKEN.address);
-
-      // truffleAssert.eventEmitted(add_new_minter, 'MinterAdded', (ev) => {
-      //   console.log(ev);
-      // });
-
-      // console.log(CROWDSALE.address)
-      // console.log(minter)
-      let minter = await TOKEN.addMinter(CROWDSALE.address, { from: token_deployer });  // transfer token minter role to crowdsale
-      // console.log(investor1)
-      // console.log(minter)
-      // await TOKEN.renounceMinter();   // remove token deployer from minter role
-    });
-
-
-
     it("checks if token is deployed", async () => {
       let ITK = await iToken.deployed();
     });
@@ -68,15 +60,15 @@ contract("iTokenCrowdsale", function ([token_deployer, wallet, investor1, invest
 
   })
 
+
   describe('Accepting payments', function () {
     it('should accept payments', async function () {
-      let iTkCrowdsale = await iTokenCrowdsale.deployed();
-      // let val = BN(Web3.toWei('1', 'ether'));
       let val = ether('1');
       // let txn = await iTkCrowdsale.buyTokens({value:val, from:investor1});
-      let txn = await iTkCrowdsale.buyTokens(investor1, { value: val, from: CROWDSALE.address });
-      console.log(txn)
+      let txn = await CROWDSALE.buyTokens(investor1, { value: val, from: investor1 });
+      // console.log(txn)
     })
   })
+  
 
 });

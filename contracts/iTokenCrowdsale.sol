@@ -8,5 +8,7 @@ contract iTokenCrowdSale is Crowdsale, MintedCrowdsale {
         uint256 rate,
         address payable wallet,    // Address where users send funds to
         IERC20 token  // address of token to be sold
-    ) public MintedCrowdsale() Crowdsale(rate, wallet, token) {}
+    ) public MintedCrowdsale() Crowdsale(rate, wallet, token) {
+        
+    }
 }
