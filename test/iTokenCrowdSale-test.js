@@ -3,8 +3,9 @@ const iTokenCrowdsale = artifacts.require("iTokenCrowdsale");
 const { BigNumber: BN } = require("bignumber.js");
 const Web3 = require("web3-utils");
 import { ether } from './helpers/ether';
-const { assert, expect } = require("chai").use(require('chai-bignumber')(BN)).should();
-const truffleAssert = require('truffle-assertions');
+const chai = require("chai")
+  .use(require('chai-as-promised')).should();
+const assert = require('chai').assert;
 
 
 
@@ -36,20 +37,17 @@ contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) 
 
     let minter = await TOKEN.addMinter(CROWDSALE.address, { from: deployer });  // transfer token minter role to crowdsale
     let balance = await TOKEN.balanceOf(CROWDSALE.address);
-    console.log({ balance: balance.toString() })
-    // console.log(minter)
-    // await TOKEN.renounceMinter();   // remove token deployer from minter role
+    // console.log({ balance: balance.toString() })
   });
 
-  describe('Test for Crowdsale details', function () {
+  describe('Crowdsale configurations', function () {
     it("checks if token is deployed", async () => {
       let ITK = await iToken.deployed();
     });
 
-    it("checks if crowdsale contract is deployed", async () => {
-      let iTkCrowdsale = await iTokenCrowdsale.deployed();
-      let rate = await iTkCrowdsale.rate();
-      // console.log(iTkCrowdsale.address)
+    it("checks if crowdsale rate is set", async () => {
+      let rate = await CROWDSALE.rate();
+      RATE.should.equal(Number(rate))
     });
 
     // checks if token that the crowdsale is selling equals the token we deployed in beforeEach
@@ -60,15 +58,28 @@ contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) 
 
   })
 
+  describe('Crowdsale Minting', () => {
+
+    it("crowdsale is minting token", async () => {
+      let originalTotalSupply = await TOKEN.totalSupply();
+      await CROWDSALE.buyTokens(investor1, { value: ether('1'), from: investor1 });
+      let newTotalSupply = await TOKEN.totalSupply();
+      assert.isTrue(newTotalSupply > originalTotalSupply)
+      // assert.fail('foo is not bar');
+
+
+    })
+
+  })
+
 
   describe('Accepting payments', function () {
     it('should accept payments', async function () {
       let val = ether('1');
-      // let txn = await iTkCrowdsale.buyTokens({value:val, from:investor1});
-      let txn = await CROWDSALE.buyTokens(investor1, { value: val, from: investor1 });
+      let buy_tokens = await CROWDSALE.buyTokens(investor1, { value: val, from: investor1 }).should.be.fulfilled;
       // console.log(txn)
     })
   })
-  
+
 
 });
