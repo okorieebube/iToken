@@ -11,7 +11,7 @@ const assert = require('chai').assert;
 
 
 
-contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) {
+contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2, investor3]) {
 
   // TOKEN CONFIG
   const NAME = "iToken";
@@ -36,7 +36,7 @@ contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) 
 
 
     let minter = await TOKEN.addMinter(CROWDSALE.address, { from: deployer });  // transfer token minter role to crowdsale
-    let balance = await TOKEN.balanceOf(CROWDSALE.address);
+    // let balance = await TOKEN.balanceOf(CROWDSALE.address);
     // console.log({ balance: balance.toString() })
   });
 
@@ -65,9 +65,6 @@ contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) 
       await CROWDSALE.buyTokens(investor1, { value: ether('1'), from: investor1 });
       let newTotalSupply = await TOKEN.totalSupply();
       assert.isTrue(newTotalSupply > originalTotalSupply)
-      // assert.fail('foo is not bar');
-
-
     })
 
   })
@@ -77,7 +74,25 @@ contract("iTokenCrowdsale", function ([deployer, wallet, investor1, investor2]) 
     it('should accept payments', async function () {
       let val = ether('1');
       let buy_tokens = await CROWDSALE.buyTokens(investor1, { value: val, from: investor1 }).should.be.fulfilled;
-      // console.log(txn)
+    })
+
+    it('should accept payments from multiple investors', async () => {
+      /* 
+        print all investors
+        print final total supply
+       */
+      await CROWDSALE.buyTokens(investor1, { value: ether('1'), from: investor1 });
+      await CROWDSALE.buyTokens(investor2, { value: ether('3'), from: investor2 });
+      await CROWDSALE.buyTokens(investor3, { value: ether('5'), from: investor3 });
+      let investor_1_bal = await TOKEN.balanceOf(investor1);
+      let investor_2_bal = await TOKEN.balanceOf(investor2);
+      let investor_3_bal = await TOKEN.balanceOf(investor3);
+      let totalSupply = await TOKEN.totalSupply();
+      // console.log(investor_1_bal.toString())
+      // console.log(investor_2_bal.toString())
+      // console.log(investor_3_bal.toString())
+      // console.log(totalSupply.toString())
+
     })
   })
 
