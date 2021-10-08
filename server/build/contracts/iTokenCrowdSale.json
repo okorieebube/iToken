@@ -787,8 +787,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-02T16:22:10.222Z",
-  "networkType": "ethereum",
+  "updatedAt": "2021-10-07T13:25:22.697Z",
   "devdoc": {
     "methods": {
       "buyTokens(address)": {
