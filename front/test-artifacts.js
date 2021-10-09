@@ -1,4 +1,6 @@
 module.exports = {
+  ropsten_node:"https://ropsten.infura.io/v3/d63909e0536444598bbb296ac1db03dd",
+  ganache_node:"http://127.0.0.1:9545",
     abi:[
         {
           "constant": true,
