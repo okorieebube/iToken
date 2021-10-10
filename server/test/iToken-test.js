@@ -10,11 +10,12 @@ contract("iToken", (accounts) => {
   const _name = "iToken";
   const _symbol = "ITK";
   const _decimals = 18;
+  var TOKEN;
   // const _initialSupply = new BN('1000000000000000000000000')
 
   beforeEach(async () => {
     // .new : deploys a new contract version to network and returns a new instance of it.
-    this.token = await iToken.new(_name, _symbol, _decimals);
+    TOKEN = await iToken.new(_name, _symbol, _decimals);
   });
 
   // Describe - to describe what a group of tests will do.
@@ -26,16 +27,16 @@ contract("iToken", (accounts) => {
     });
 
     it("has correct name", async () => {
-      let name = await this.token.name();
+      let name = await TOKEN.name();
       name.should.equal(_name);
     });
     it("has correct symbol", async () => {
-      let symbol = await this.token.symbol();
+      let symbol = await TOKEN.symbol();
       // symbol.should.equal(_symbol);
       assert.equal(_symbol, symbol);
     });
     it("has correct decimal", async () => {
-      let decimals = await this.token.decimals();
+      let decimals = await TOKEN.decimals();
       decimals.words[0].should.equal(18);
       // expect(await this.token.decimals()).to.be.bignumber.equal("18");
     });

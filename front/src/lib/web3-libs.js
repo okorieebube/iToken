@@ -1,14 +1,16 @@
 const Web3 = require("web3");
-const { ropsten_node, ganache_node } = require("../../test-artifacts");
+const { ropsten_node, ganache_node, PRV_KEY_1 } = require("../../test-artifacts");
 const web3 = new Web3(ganache_node);
+const fs = require("fs");
 var Tx = require("ethereumjs-tx").Transaction;
 require("dotenv").config();
-const privateKey1 = Buffer.from(process.env.PRV_KEY_1, "hex");
+const privateKey1 = Buffer.from(PRV_KEY_1, "hex");
 
 module.exports = {
     transfer,
     new_contract_instance,
     deploy_contract_object,
+    contract_artifact
 };
 
 
@@ -61,4 +63,12 @@ async function transfer(
     web3.eth.sendSignedTransaction(raw, (err, txHash) => {
         console.log({ err: err, txHash: txHash });
     });
+}
+
+async function contract_artifact(file_name){
+    let rawCodeFs = await fs.readFileSync(
+        `${"../../../server/build/contracts/"}/${file_name}.json`
+      );
+      let rawcode = await JSON.parse(rawCodeFs.toString());
+      return rawcode;
 }

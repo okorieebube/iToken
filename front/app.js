@@ -14,8 +14,8 @@ const privateKey1 = Buffer.from(process.env.PRV_KEY_1, "hex"); // convert our pv
 
 
 
-
-/* (async () => {
+/* 
+(async () => {
   
   // send a basic signed txn with ether 
   // let txnObject = await build_txn_obj(account1, account2, "1000000", "10");
@@ -49,14 +49,15 @@ const privateKey1 = Buffer.from(process.env.PRV_KEY_1, "hex"); // convert our pv
 
 })();
  */
+// 0xac63e029c7742b9cb3b3ea2497770b02d011dfc18ac726f22e4bc003cdae9965
 
 
 
-let contract_address = "0x7Afec8f88a1804893AbB2F5b9daeFe3F2cdC8994";
+let contract_address = "0x8642053A9A90CB0Ec98d94687aC5Dc7BC62bfE62";
 let contractABI = abi;
 let iTokenContract = new web3.eth.Contract(contractABI, contract_address);
 // console.log(iTokenContract)
-iTokenContract.methods.balanceOf(account1).call((err, result) => { console.log("result:", result, "err:", err) })
+iTokenContract.methods.totalSupply().call((err, result) => { console.log("result:", result, "err:", err) })
 
 // lib.transfer(iTokenContract,account1, account2, '1', contract_address)
 
