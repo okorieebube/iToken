@@ -1,20 +1,20 @@
-const { abi, ropsten_node, ganache_node } = require("./test-artifacts");
+const { abi, ropsten_node, ganache_node, PRV_KEY_1, ACCT1, BYTE_CODE, ACCT2 } = require("./test-artifacts");
 var Tx = require("ethereumjs-tx").Transaction;
 const Web3 = require("web3");
 const web3 = new Web3(ganache_node);
-const lib = require("./src/lib/web3-libs")
+const lib = require("../src/lib/web3-libs")
 // import deploy_contract_object from './src/lib/web3-libs'
 require('dotenv').config();
 
-let account1 = process.env.acct_1;
-const account2 = process.env.acct_2; 
+let account1 = ACCT1;
+const account2 = ACCT2; 
 
-const privateKey1 = Buffer.from(process.env.PRV_KEY_1, "hex"); // convert our pv key to binary data
+const privateKey1 = Buffer.from(PRV_KEY_1, "hex"); // convert our pv key to binary data
 // const privateKey2 = Buffer.from(process.env.PRV_KEY_2, "hex");
 
+// console.log(process.env.BYTE_CODE);return;
 
 
-/* 
 (async () => {
   
   // send a basic signed txn with ether 
@@ -26,7 +26,7 @@ const privateKey1 = Buffer.from(process.env.PRV_KEY_1, "hex"); // convert our pv
     ['iToken', 'ITK', '18']
   ).slice(2);
 
-  const bytecodeWithEncodedParameters = process.env.BYTE_CODE + encodedParameters;
+  const bytecodeWithEncodedParameters = BYTE_CODE + encodedParameters;
 
   
   let txnObject = await deploy_contract_object(account1,bytecodeWithEncodedParameters);
@@ -48,17 +48,17 @@ const privateKey1 = Buffer.from(process.env.PRV_KEY_1, "hex"); // convert our pv
   });
 
 })();
- */
+
 // 0xac63e029c7742b9cb3b3ea2497770b02d011dfc18ac726f22e4bc003cdae9965
 
 
-
-let contract_address = "0x8642053A9A90CB0Ec98d94687aC5Dc7BC62bfE62";
+/* 
+let contract_address = "0x7Afec8f88a1804893AbB2F5b9daeFe3F2cdC8994";
 let contractABI = abi;
 let iTokenContract = new web3.eth.Contract(contractABI, contract_address);
 // console.log(iTokenContract)
 iTokenContract.methods.totalSupply().call((err, result) => { console.log("result:", result, "err:", err) })
-
+ */
 // lib.transfer(iTokenContract,account1, account2, '1', contract_address)
 
 
