@@ -410,10 +410,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1696,
-                        1697
+                        1752,
+                        1753
                       ],
-                      "referencedDeclaration": 1697,
+                      "referencedDeclaration": 1753,
                       "src": "668:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -739,10 +739,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                1696,
-                                1697
+                                1752,
+                                1753
                               ],
-                              "referencedDeclaration": 1697,
+                              "referencedDeclaration": 1753,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -994,7 +994,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-17T12:53:00.013Z",
+  "updatedAt": "2021-10-31T15:23:18.190Z",
   "devdoc": {
     "details": "Extension of Crowdsale contract whose tokens are minted in each purchase. Token ownership should be transferred to MintedCrowdsale for minting.",
     "methods": {

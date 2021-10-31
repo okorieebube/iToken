@@ -782,12 +782,19 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xdF8239CB8CAdfd3Cd9a9EfAdc046c59fbC940054",
-      "transactionHash": "0x87b4b4cb1f3aac1627d4c287bc90024fe402e6eb42a051da44c1a12730a9549a"
+      "address": "0x41965BB92735E59Fe5A1cAb4c35895EaeeA1e877",
+      "transactionHash": "0x8214971f44a43a51c3b031cb1a272f7c72f14639c5a1fdeb7d304048ac456604"
+    },
+    "1635653504853": {
+      "events": {},
+      "links": {},
+      "address": "0xd017f41cABA3DC180A6c2f9817DDC3757c683600",
+      "transactionHash": "0x45284be6d532f65346e0875476abd16ed62519f5d4b7fcdbd153d10270f06b9b"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-17T12:53:00.091Z",
+  "updatedAt": "2021-10-31T15:23:21.889Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "buyTokens(address)": {

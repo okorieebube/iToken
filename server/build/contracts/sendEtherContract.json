@@ -1,0 +1,578 @@
+{
+  "contractName": "sendEtherContract",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "functionCalled",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "sendEther",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"sendEther\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"functionCalled\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/sendEtherContract.sol\":\"sendEtherContract\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/sendEtherContract.sol\":{\"keccak256\":\"0xb04a5307cbf2e5891fb7c2e5acee2696fa4a306b278eccd786940d790adc7cd2\",\"urls\":[\"bzzr://9204336c4e051b35c440375ec79dbd024c46be6c01a5cff0df9af0e1908dd55d\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102ce806100206000396000f3fe6080604052600436106100295760003560e01c80630e29df2214610077578063cc81afc814610081575b6040518060400160405280600881526020017f66616c6c6261636b000000000000000000000000000000000000000000000000815250600090805190602001906100749291906101fd565b50005b61007f610111565b005b34801561008d57600080fd5b5061009661015f565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100d65780820151818401526020810190506100bb565b50505050905090810190601f1680156101035780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6040518060400160405280600981526020017f73656e64457468657200000000000000000000000000000000000000000000008152506000908051906020019061015c9291906101fd565b50565b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101f55780601f106101ca576101008083540402835291602001916101f5565b820191906000526020600020905b8154815290600101906020018083116101d857829003601f168201915b505050505081565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061023e57805160ff191683800117855561026c565b8280016001018555821561026c579182015b8281111561026b578251825591602001919060010190610250565b5b509050610279919061027d565b5090565b61029f91905b8082111561029b576000816000905550600101610283565b5090565b9056fea165627a7a7230582069fcff9a6f3060317c0a93f449bc22ad0eca09137ce1df7b098087bdd58eb3bd0029",
+  "deployedBytecode": "0x6080604052600436106100295760003560e01c80630e29df2214610077578063cc81afc814610081575b6040518060400160405280600881526020017f66616c6c6261636b000000000000000000000000000000000000000000000000815250600090805190602001906100749291906101fd565b50005b61007f610111565b005b34801561008d57600080fd5b5061009661015f565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100d65780820151818401526020810190506100bb565b50505050905090810190601f1680156101035780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6040518060400160405280600981526020017f73656e64457468657200000000000000000000000000000000000000000000008152506000908051906020019061015c9291906101fd565b50565b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101f55780601f106101ca576101008083540402835291602001916101f5565b820191906000526020600020905b8154815290600101906020018083116101d857829003601f168201915b505050505081565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061023e57805160ff191683800117855561026c565b8280016001018555821561026c579182015b8281111561026b578251825591602001919060010190610250565b5b509050610279919061027d565b5090565b61029f91905b8082111561029b576000816000905550600101610283565b5090565b9056fea165627a7a7230582069fcff9a6f3060317c0a93f449bc22ad0eca09137ce1df7b098087bdd58eb3bd0029",
+  "sourceMap": "26:246:17:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:246:17;;;;;;;",
+  "deployedSourceMap": "26:246:17:-;;;;;;;;;;;;;;;;;;;;;;;228:27;;;;;;;;;;;;;;;;;:14;:27;;;;;;;;;;;;:::i;:::-;;26:246;97:84;;;:::i;:::-;;60:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;60:28:17;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;60:28:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;97:84;145:28;;;;;;;;;;;;;;;;;:14;:28;;;;;;;;;;;;:::i;:::-;;97:84::o;60:28::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;26:246::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity 0.5.5;\r\n\r\ncontract sendEtherContract {\r\n    string public functionCalled;\r\n\r\n    function sendEther() external payable{\r\n        functionCalled = 'sendEther';\r\n    }\r\n\r\n    function () external payable{\r\n        functionCalled = 'fallback';\r\n    }\r\n    \r\n}",
+  "sourcePath": "C:\\wamp64\\www\\CODE\\PROTOTYPES\\2021\\iToken\\server\\contracts\\sendEtherContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/sendEtherContract.sol",
+    "exportedSymbols": {
+      "sendEtherContract": [
+        1734
+      ]
+    },
+    "id": 1735,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1715,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:22:17"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1734,
+        "linearizedBaseContracts": [
+          1734
+        ],
+        "name": "sendEtherContract",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1717,
+            "name": "functionCalled",
+            "nodeType": "VariableDeclaration",
+            "scope": 1734,
+            "src": "60:28:17",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1716,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "60:6:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1724,
+              "nodeType": "Block",
+              "src": "134:47:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1722,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1720,
+                      "name": "functionCalled",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1717,
+                      "src": "145:14:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "73656e644574686572",
+                      "id": 1721,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "162:11:17",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_c700fcf825bb96908bcfa40b8d91237381cd207a842fc67195330064c6f87772",
+                        "typeString": "literal_string \"sendEther\""
+                      },
+                      "value": "sendEther"
+                    },
+                    "src": "145:28:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 1723,
+                  "nodeType": "ExpressionStatement",
+                  "src": "145:28:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1725,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "sendEther",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1718,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "115:2:17"
+            },
+            "returnParameters": {
+              "id": 1719,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "134:0:17"
+            },
+            "scope": 1734,
+            "src": "97:84:17",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 1732,
+              "nodeType": "Block",
+              "src": "217:46:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1730,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1728,
+                      "name": "functionCalled",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1717,
+                      "src": "228:14:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c6c6261636b",
+                      "id": 1729,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "245:10:17",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_b32cdf4d3c016cb0f079f205ad61c36b1a837fb3e95c70a94bdedfca0518a010",
+                        "typeString": "literal_string \"fallback\""
+                      },
+                      "value": "fallback"
+                    },
+                    "src": "228:27:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 1731,
+                  "nodeType": "ExpressionStatement",
+                  "src": "228:27:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1733,
+            "implemented": true,
+            "kind": "fallback",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1726,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "198:2:17"
+            },
+            "returnParameters": {
+              "id": 1727,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "217:0:17"
+            },
+            "scope": 1734,
+            "src": "189:74:17",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1735,
+        "src": "26:246:17"
+      }
+    ],
+    "src": "0:272:17"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/sendEtherContract.sol",
+      "exportedSymbols": {
+        "sendEtherContract": [
+          1734
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.5",
+            ".5"
+          ]
+        },
+        "id": 1715,
+        "name": "PragmaDirective",
+        "src": "0:22:17"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1734
+          ],
+          "name": "sendEtherContract",
+          "scope": 1735
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "functionCalled",
+              "scope": 1734,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 1716,
+                "name": "ElementaryTypeName",
+                "src": "60:6:17"
+              }
+            ],
+            "id": 1717,
+            "name": "VariableDeclaration",
+            "src": "60:28:17"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "sendEther",
+              "scope": 1734,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1718,
+                "name": "ParameterList",
+                "src": "115:2:17"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1719,
+                "name": "ParameterList",
+                "src": "134:0:17"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1717,
+                              "type": "string storage ref",
+                              "value": "functionCalled"
+                            },
+                            "id": 1720,
+                            "name": "Identifier",
+                            "src": "145:14:17"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "73656e644574686572",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"sendEther\"",
+                              "value": "sendEther"
+                            },
+                            "id": 1721,
+                            "name": "Literal",
+                            "src": "162:11:17"
+                          }
+                        ],
+                        "id": 1722,
+                        "name": "Assignment",
+                        "src": "145:28:17"
+                      }
+                    ],
+                    "id": 1723,
+                    "name": "ExpressionStatement",
+                    "src": "145:28:17"
+                  }
+                ],
+                "id": 1724,
+                "name": "Block",
+                "src": "134:47:17"
+              }
+            ],
+            "id": 1725,
+            "name": "FunctionDefinition",
+            "src": "97:84:17"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "fallback",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 1734,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1726,
+                "name": "ParameterList",
+                "src": "198:2:17"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1727,
+                "name": "ParameterList",
+                "src": "217:0:17"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1717,
+                              "type": "string storage ref",
+                              "value": "functionCalled"
+                            },
+                            "id": 1728,
+                            "name": "Identifier",
+                            "src": "228:14:17"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "66616c6c6261636b",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"fallback\"",
+                              "value": "fallback"
+                            },
+                            "id": 1729,
+                            "name": "Literal",
+                            "src": "245:10:17"
+                          }
+                        ],
+                        "id": 1730,
+                        "name": "Assignment",
+                        "src": "228:27:17"
+                      }
+                    ],
+                    "id": 1731,
+                    "name": "ExpressionStatement",
+                    "src": "228:27:17"
+                  }
+                ],
+                "id": 1732,
+                "name": "Block",
+                "src": "217:46:17"
+              }
+            ],
+            "id": 1733,
+            "name": "FunctionDefinition",
+            "src": "189:74:17"
+          }
+        ],
+        "id": 1734,
+        "name": "ContractDefinition",
+        "src": "26:246:17"
+      }
+    ],
+    "id": 1735,
+    "name": "SourceUnit",
+    "src": "0:272:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xdF8239CB8CAdfd3Cd9a9EfAdc046c59fbC940054",
+      "transactionHash": "0x54f13300d74dcb8cd9f88d50f680ad5854e23519b7a6dd45ddfc73a547708235"
+    }
+  },
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-10-31T15:23:18.259Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

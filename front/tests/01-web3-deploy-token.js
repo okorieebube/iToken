@@ -1,4 +1,4 @@
-const { abi, ropsten_node, ganache_node, PRV_KEY_1, ACCT1, BYTE_CODE, ACCT2 } = require("./test-artifacts");
+const { abi, ropsten_node, ganache_node, PRV_KEY_1, ACCT1, TOKEN_BYTE_CODE, ACCT2 } = require("./test-artifacts");
 var Tx = require("ethereumjs-tx").Transaction;
 const Web3 = require("web3");
 const web3 = new Web3(ganache_node);
@@ -16,6 +16,10 @@ const privateKey1 = Buffer.from(PRV_KEY_1, "hex"); // convert our pv key to bina
 
 
 (async () => {
+
+  
+  const ITOKEN_ARTIFACT = await lib.contract_artifact("iToken");
+  const ITOKENBYTECODE = ITOKEN_ARTIFACT.bytecode;
   
   // send a basic signed txn with ether 
   // let txnObject = await build_txn_obj(account1, account2, "1000000", "10");
@@ -26,7 +30,7 @@ const privateKey1 = Buffer.from(PRV_KEY_1, "hex"); // convert our pv key to bina
     ['iToken', 'ITK', '18']
   ).slice(2);
 
-  const bytecodeWithEncodedParameters = BYTE_CODE + encodedParameters;
+  const bytecodeWithEncodedParameters = ITOKENBYTECODE + encodedParameters;
 
   
   let txnObject = await deploy_contract_object(account1,bytecodeWithEncodedParameters);
