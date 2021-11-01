@@ -17,28 +17,33 @@ const crowdsale_artifacts = require("../../server/build/contracts/iTokenCrowdSal
     crowdsaleDeployedNetwork.address
   );
 
-  console.log('crowdsale', crowdsale_contract.options.address)
 
-//   await token_contract.methods
-//     .addMinter(token_contract.options.address)
-//     .send();
+/*   await token_contract.methods
+    .addMinter(token_contract.options.address)
+    .send(); 
+*/
 
     
+/*  
   let isMinter = await token_contract.methods
   .isMinter(crowdsale_contract.options.address)
   .call();
   console.log("isMinter", isMinter, "address",crowdsale_contract.options.address);
+*/
 
 
-//   let amt = web3.utils.toBN(100000);
-//   let buyToken = await crowdsale_contract.methods
-//     .buyTokens(address[2])
-//     .send({ from: address[2], value: amt })
-//     .on("error", (err, reciept) => {
-//       console.log({ err });
-//     });
+/* 
+    let amt = web3.utils.toBN(100000);
+    let buyToken = await crowdsale_contract.methods
+    .buyTokens(address[2])
+    .send({ from: address[2], value: amt, gas: 5500000})
+    .on("error", (err, reciept) => {
+        console.log({ err });
+    }); 
+*/
 
-
-    // let investor_bal = await token_contract.methods.totalSupply().call();
-    // console.log(investor_bal)
+/* 
+    let investor_bal = await token_contract.methods.balanceOf(address[2]).call();
+    console.log({investor_bal})
+*/
 })();
